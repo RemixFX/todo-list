@@ -13,7 +13,7 @@ export default function TodoList({todoList}: {todoList: ITodoList[]}) {
       <h2 className={styles.title}>Список задач:</h2>
       <ul className={styles.list}>
         {todoList.map((item) =>
-          <Todo key={item.id} content={item.todo}/>
+          <Todo key={item.id} task={item.task} id={item.id} completed={item.completed}/>
         )}
         
       </ul>

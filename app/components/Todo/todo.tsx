@@ -1,18 +1,31 @@
 import { useState } from 'react';
 import styles from './todo.module.css'
 import SelectAction from '../SelectAction/select-action';
+import { useAppDispatch } from '@/app/store/hooks';
+import { completeTask, removeTask } from '@/app/store/reducers/actionCreators';
+import { ITodoList } from '@/app/store/reducers/todoSlice';
 
-interface TodoProps {
-  content: string;
-}
-
-export default function Todo ({content}: TodoProps) {
+export default function Todo ({ task, id, completed }: ITodoList) {
 
   const [isShow, setIsShow] = useState<boolean>(false)
+  const dispatch = useAppDispatch()
   
+  const setIsCompleteTask = () => {
+    dispatch(completeTask(id))
+  }
+  
+  const setIsremoveTask = () => {
+    dispatch(removeTask(id))
+  }
+
   return (
     <li className={styles.element} onClick={() => setIsShow(!isShow)}>
-    {!isShow ? content : <SelectAction/>}
+    {!isShow ? task : 
+    <SelectAction 
+    completed={completed}
+    actionForCompleteButton={setIsCompleteTask}
+    actionForRemoveButton={setIsremoveTask}
+    />}
   </li>
   )
 }

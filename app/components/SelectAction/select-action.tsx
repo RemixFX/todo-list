@@ -1,22 +1,30 @@
 import styles from './select-action.module.css'
 
-export default function SelectAction() {
+interface SelectActionProps {
+  actionForCompleteButton: () => void;
+  actionForRemoveButton: () => void;
+  completed: boolean;
+}
 
+export default function SelectAction({ actionForCompleteButton, actionForRemoveButton, completed }: SelectActionProps) {
+
+  const handleClickCompleteButton = () => actionForCompleteButton()
+  const handleClickRemoveButton = () => actionForRemoveButton()
 
   return (
     <div className={styles.container}>
-      <button className={`${styles.button} ${styles.button_type_complete}`}
-        type="button" >
-          Выполнено
-          &#10003;
-        </button>
+      {!completed && <button className={`${styles.button} ${styles.button_type_complete}`}
+        type="button" onClick={handleClickCompleteButton}>
+        Выполнено
+        &#10003;
+      </button>}
       <button className={`${styles.button} ${styles.button_type_remove}`}
-        type="button" >
-          Удалить
-          &#10007;
-          </button>
+        type="button" onClick={handleClickRemoveButton}>
+        Удалить
+        &#10007;
+      </button>
       <button className={`${styles.button} ${styles.button_type_cancel}`}>
-      &#8634;
+        &#8634;
       </button>
     </div>
   )

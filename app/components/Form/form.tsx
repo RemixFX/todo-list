@@ -16,6 +16,7 @@ export default function Form({ submit, titleForm, titleButton }: FormProps) {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     submit(value)
+    setValue('')
   }
 
   return (
