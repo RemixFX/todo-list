@@ -1,7 +1,7 @@
 'use client'
 
-import Checkbox from './components/Checkbox/checkbox'
 import Form from './components/Form/form';
+import Header from './components/Header/header';
 import TodoList from './components/TodoList/todo-list';
 import styles from './page.module.css'
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
@@ -11,6 +11,7 @@ import { changeTheme } from '@/app/store/reducers/actionCreators';
 export default function Home() {
   const dispatch = useAppDispatch()
   const { theme } = useAppSelector(state => state.theme)
+  const { todoList } = useAppSelector(state => state.todo)
 
   const handleChangeTheme = (value: boolean) => {
     if (!value) {
@@ -26,15 +27,19 @@ export default function Home() {
 
   return (
     <main className={styles.main} data-theme={theme}>
-      <Checkbox
+      <Header
         checkboxCallback={handleChangeTheme}
         values={['Светлая тема', 'Темная тема']}
       />
-      <Form submit={submitForm}
+      <div className={styles.layout}>
+        <TodoList todoList={todoList}/>
+        <Form submit={submitForm}
         titleForm='Добавить задачу'
         titleButton='Добавить'
       />
-      <TodoList/>
+      </div>
+      
+      
     </main>
   )
 }

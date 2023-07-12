@@ -1,0 +1,17 @@
+.element {
+  margin: 10px;
+  padding: 1rem;
+  min-height: 74px;
+  position: relative;
+  color: var(--color-invert);
+  border-radius: 10px;
+  border: 1px solid var(--background);
+  background: var(--background-invert);
+  cursor: pointer;
+}
+
+.element:hover {
+  color: var(--color);
+  background: var(--background);
+  border: 1px solid var(--background-invert);
+}

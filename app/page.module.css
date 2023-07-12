@@ -2,8 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 6rem;
+  padding: 0 3rem 3rem 3rem;
   min-height: 100vh;
   background-color: var(--background);
 }
 
+.layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 20px;
+}

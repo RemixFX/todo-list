@@ -4,7 +4,7 @@ import { useState } from 'react'
 import styles from './checkbox.module.css'
 import { useAppSelector } from '@/app/store/hooks';
 
-interface CheckboxProps {
+export interface CheckboxProps {
   checkboxCallback: (value: boolean) => void
   values: string[]
 }
@@ -23,7 +23,7 @@ export default function Checkbox({ checkboxCallback, values }: CheckboxProps) {
     <div className={styles.container} data-theme={theme}>
       <label className={styles.layout}>
         <input type="checkbox" className={styles.checkbox}
-          checked={checked} onChange={handleChange} />
+          checked={checked} onChange={handleChange}/>
         <span className={styles.switch}></span>
       </label>
       <div className={styles.descriptions}>
