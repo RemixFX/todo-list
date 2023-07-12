@@ -13,6 +13,7 @@ export default function Form({ submit, titleForm, titleButton }: FormProps) {
   const { theme } = useAppSelector(state => state.theme)
   const [value, setValue] = useState<string>('')
 
+  // Поднятие стейта для отправки формы
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     submit(value)

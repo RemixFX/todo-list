@@ -1,4 +1,3 @@
-'use client'
 
 import { useState } from 'react'
 import styles from './checkbox.module.css'
@@ -14,6 +13,7 @@ export default function Checkbox({ checkboxCallback, values }: CheckboxProps) {
   const [checked, setIsChecked] = useState(true)
   const { theme } = useAppSelector(state => state.theme)
 
+  //Изменение состояния чекбокса и поднятие стейта
   const handleChange = () => {
     setIsChecked(!checked)
     checkboxCallback(checked)

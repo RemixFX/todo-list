@@ -10,16 +10,20 @@ export default function Todo ({ task, id, completed }: ITodoList) {
   const [isShow, setIsShow] = useState<boolean>(false)
   const dispatch = useAppDispatch()
   
+  //Запрос на обновление complete у task на завершенную
   const setIsCompleteTask = () => {
     dispatch(completeTask(id))
   }
   
+  //Запрос на удаление текущей task
   const setIsremoveTask = () => {
     dispatch(removeTask(id))
   }
 
   return (
-    <li className={styles.element} onClick={() => setIsShow(!isShow)}>
+    <li className={`${styles.element} ${completed ? styles.element_type_completed : ''}`}
+     onClick={() => setIsShow(!isShow)}
+     >
     {!isShow ? task : 
     <SelectAction 
     completed={completed}

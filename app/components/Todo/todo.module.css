@@ -10,6 +10,10 @@
   cursor: pointer;
 }
 
+.element_type_completed {
+  background: #008000;
+}
+
 .element:hover {
   color: var(--color);
   background: var(--background);

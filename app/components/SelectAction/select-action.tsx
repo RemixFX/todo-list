@@ -8,6 +8,7 @@ interface SelectActionProps {
 
 export default function SelectAction({ actionForCompleteButton, actionForRemoveButton, completed }: SelectActionProps) {
 
+  //Передача функции при клике на кнопку
   const handleClickCompleteButton = () => actionForCompleteButton()
   const handleClickRemoveButton = () => actionForRemoveButton()
 

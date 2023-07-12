@@ -7,7 +7,6 @@ export default function TodoList({todoList}: {todoList: ITodoList[]}) {
 
   const { theme } = useAppSelector(state => state.theme)
 
-
   return (
     <section className={styles.section} data-theme={theme}>
       <h2 className={styles.title}>Список задач:</h2>
