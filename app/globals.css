@@ -1,7 +1,7 @@
 :root {
   --max-width: 1100px;
-  --background-light: #fff;
-  --background-dark: #000;
+  --background-light: #d1d1dd;
+  --background-dark: #2b2b2b;
   --color-light: #fff;
   --color-dark: #000;
 }
@@ -10,12 +10,14 @@
   --background: var(--background-light);
   --background-invert: var(--background-dark);
   --color: var(--color-dark);
+  --color-invert: var(--color-light);
 }
 
 [data-theme='dark'] {
   --background: var(--background-dark);
   --background-invert: var(--background-light);
   --color: var(--color-light);
+  --color-invert: var(--color-dark);
 }
 
 * {

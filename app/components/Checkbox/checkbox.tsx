@@ -20,13 +20,13 @@ export default function Checkbox({ checkboxCallback, values }: CheckboxProps) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-theme={theme}>
       <label className={styles.layout}>
         <input type="checkbox" className={styles.checkbox}
           checked={checked} onChange={handleChange} />
-        <span className={styles.switch} data-theme={theme}></span>
+        <span className={styles.switch}></span>
       </label>
-      <div className={styles.descriptions} data-theme={theme}>
+      <div className={styles.descriptions}>
         <span className={styles.value}>{values[0]}</span>
         <span className={styles.value}>{values[1]}</span>
       </div>
