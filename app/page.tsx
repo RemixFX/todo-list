@@ -8,6 +8,7 @@ import TodoList from './components/TodoList/todo-list';
 import styles from './page.module.css'
 import { useAppDispatch, useAppSelector } from '@/app/store/hooks';
 import { addTask, changeTheme } from '@/app/store/reducers/actionCreators';
+import Footer from './components/Footer/footer';
 
 export default function Home() {
   const dispatch = useAppDispatch()
@@ -41,24 +42,24 @@ export default function Home() {
   }
   
   return (
+    <>
     <main className={styles.main} data-theme={theme}>
       <Header
         checkboxCallback={handleChangeTheme}
-        values={['Светлая тема', 'Темная тема']}
-      />
+        values={['Светлая тема', 'Темная тема']} />
       <div className={styles.layout}>
         <TodoList todoList={filteredTask} />
         <div className={styles.right_block}>
           <Checkbox
             checkboxCallback={changeFilterTodo}
-            values={['Показать завершенные', 'Показать незавершенные']}
-          />
+            values={['Показать завершенные', 'Показать незавершенные']} />
           <Form submit={submitForm}
             titleForm='Добавить задачу'
-            titleButton='Добавить'
-          />
+            titleButton='Добавить' />
         </div>
       </div>
     </main>
+    <Footer />
+    </>
   )
 }
